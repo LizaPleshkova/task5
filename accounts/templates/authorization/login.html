@@ -1,0 +1,30 @@
+{% extends 'layout/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Вход на сайт
+{% endblock %}
+
+{% block content %}
+
+<div class="login-page">
+    <div class="form">
+        <form action="" method="post">
+            {% if messages %}
+            {% for message in messages %}
+
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+            {% csrf_token %}
+            <form class="login-form">
+                {{ form.username|as_crispy_field }}
+                {{ form.password|as_crispy_field }}
+                <button>Login</button>
+                <p class="message">Not registered? <a href="{% url 'register' %}">Create an account</a></p>
+            </form>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
