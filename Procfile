@@ -1,0 +1,1 @@
+web: gunicorn task5itran.wsgi --log-file 
